@@ -15,7 +15,7 @@ program
 	.command('create')
 	.description('create a project')
 	.action(function(){
-		green('欢迎使用aox, 灵活构建react项目~🎉🎉🎉')
+		green('欢迎使用fvx, 灵活构建react项目~🎉🎉🎉')
 		inquirer.create().then(res=>{
 				if(res.conf){
 						create(res)
