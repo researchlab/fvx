@@ -8,7 +8,7 @@ const devConfig = {
         contentBase: path.resolve(__dirname, '../public'),
         hot: true, 
         historyApiFallback: true, 
-        publicPath: '../public',
+        publicPath: '/',
         port: 9901
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
