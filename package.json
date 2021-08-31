@@ -1,6 +1,6 @@
 {
  "name": "fvx",
- "version": "1.0.2",
+ "version": "1.0.3",
  "main": "index.js",
  "repository": "git@github.com:researchlab/fvx.git",
  "author": "hong li <lihongitchina@gmail.com>",
