@@ -1,19 +1,19 @@
 import React from 'react'
+import './app.scss'
+
+const image = require('./assets/images/logo.png')
+
 
 function App(){
 
-    return <div style={{
-        margin:'auto',
-        // marginTop: '50px', 
-        width:'486px',
-        padding:'5px'
-        }}>
-           <button className='searchbtn'
-               style={{ background: 'purple' }}
-            >
-                Fvx Tooling for React Development 
-            </button>
+                 
+	return <div className="page" >
+    <div className="content" >
+      <img src={image} />
+      <p className="title" >⭐️  Fvx Tooling for React Development ⭐️</p>
     </div>
+  </div>
+
 }
 
 export default App
