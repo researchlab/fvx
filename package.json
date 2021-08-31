@@ -1,15 +1,15 @@
 {
  "name": "fvx",
- "version": "1.0.6",
+ "version": "1.0.6-beta.5",
  "description": "Fvx, an automatic, convenience and flexible scaffold Tooling for React Development.",
  "main": "index.js",
  "repository": "git@github.com:researchlab/fvx.git",
  "author": "hong li <lihongitchina@gmail.com>",
-  "keyword": [
-		"fvx",
-		"scaffold",
-		"react"
-	],
+ "keyword": [
+  "fvx",
+  "scaffold",
+  "react"
+ ],
  "license": "MIT",
  "bin": {
   "fvx": "./bin/fvx.js"

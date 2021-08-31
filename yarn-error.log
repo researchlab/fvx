@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn publish
+  /usr/local/bin/node /usr/local/bin/yarn publish --tag beta.5
 
 PATH: 
   /opt/anaconda3/bin:/opt/anaconda3/condabin:/Users/lihong/.sdkman/candidates/scala/current/bin:/usr/local/apache-maven-3.3.9/bin:/usr/local/mysql/bin:/usr/local/gotool:/usr/local/go/bin:/Users/lihong/workbench/dev/bin:/usr/local/tools/protobuf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/Users/lihong/workbench/istio/istio-1.1.2/bin:/Users/lihong/workbench/dev/bin:/Users/lihong/.cargo/bin:/Users/lihong/workbench/docker/istio-1.3.3/bin:/Users/lihong/.rvm/bin
@@ -14,25 +14,24 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/-/user/org.couchdb.user:researchlab: [conflict] User researchlab already exists
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
-      at Request.emit (events.js:311:20)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141634:10)
-      at Request.emit (events.js:311:20)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141556:12)
-      at Object.onceWrapper (events.js:417:28)
-      at IncomingMessage.emit (events.js:323:22)
-      at endReadableNT (_stream_readable.js:1204:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+  Error: https://registry.npmjs.org/-/user/org.couchdb.user:researchlab: ETIMEDOUT
+      at Timeout._onTimeout (/usr/local/lib/node_modules/yarn/lib/cli.js:141322:19)
+      at listOnTimeout (internal/timers.js:549:17)
+      at processTimers (internal/timers.js:492:7)
 
 npm manifest: 
   {
    "name": "fvx",
-   "version": "1.0.0",
+   "version": "1.0.6-beta.5",
+   "description": "Fvx, an automatic, convenience and flexible scaffold Tooling for React Development.",
    "main": "index.js",
    "repository": "git@github.com:researchlab/fvx.git",
    "author": "hong li <lihongitchina@gmail.com>",
+   "keyword": [
+    "fvx",
+    "scaffold",
+    "react"
+   ],
    "license": "MIT",
    "bin": {
     "fvx": "./bin/fvx.js"
