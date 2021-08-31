@@ -10,7 +10,7 @@
 
 ⭐️  An automatic, convenience and flexible scaffold Tooling for React Development. ⭐️
 
-[![GitHub issues][issues-image]][issues-url][![GitHub forks][forks-image]][forks-url][![GitHub stars][stars-image]][stars-url][![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+[![GitHub issues][issues-image]][issues-url] [![GitHub forks][forks-image]][forks-url] [![GitHub stars][stars-image]][stars-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
 [issues-image]: https://img.shields.io/github/issues/researchlab/fvx
 [issues-url]: https://github.com/researchlab/fvx/issues
@@ -20,5 +20,7 @@
 [stars-url]: https://github.com/researchlab/fvx/stargazers
 [npm-image]: https://img.shields.io/npm/v/fvx?style=flat-square
 [npm-url]: https://www.npmjs.com/package/fvx 
+[download-image]: https://img.shields.io/npm/dm/month/fvx?style=flat-square
+[download-url]: https://www.npmjs.com/package/fvx
 
 </div>
