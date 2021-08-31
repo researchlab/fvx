@@ -13,23 +13,24 @@ function runCMD(cmd, args, fn){
 	})
 }
 
-function findNPM(){
-	let npms = process.platform === 'win32' ? ['npm.cmd'] : ['npm']
-	for (let i = 0; i < npms.length; i++){
+function findYarn(){
+	
+	let yarns = process.platform === 'win32' ? ['yarn.cmd'] : ['yarn']
+	for (let i = 0; i < yarns.length; i++){
 		try{
-			which.sync(npms[i])
-			console.log('use npm: '+ npms[i])
-			return npms[i]
+			which.sync(yarns[i])
+			console.log('use yarn:', yarns[i])
+			return yarns[i]
 		}catch(e){
 		}
 	}
-	throw new Error('please install npm')
+	throw new Error('please install yarn')
 }
 
 module.exports = function(installArg = ['install']){
-	const npm = findNPM()
+	const yarn = findYarn()
 	return function(done){
-		runCMD(which.sync(npm), installArg, function(){
+		runCMD(which.sync(yarn), installArg, function(){
 			done && done()
 		})
 	}

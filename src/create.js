@@ -1,13 +1,13 @@
 const fs = require('fs')
 const utils = require('../utils/index')
-const npm = require('./install')
+const yarn = require('./install')
 
 const { green, blue, yellow, red } = utils
 
-const BUILD_START		  = '----------开始构建-----------'
-const BUILD_END				= '----------构建结束-----------'
-const IINSTALLL_START = '----------npm包安装----------'
-const INSTANLL_END		= '----------npm包安装完成------'
+const BUILD_START     = '----------开始构建-----------'
+const BUILD_END       = '----------构建结束-----------'
+const IINSTALLL_START = '----------yarn包安装----------'
+const INSTANLL_END    = '----------yarn包安装完成------'
 
 let fileCount = 0
 let dirCount = 0
@@ -19,7 +19,7 @@ module.exports = function(res){
 	const sourcePath = __dirname.slice(0,-3) +'template'
 	blue('当前路径:'+process.cwd())
 	modifyPackageJson(res, sourcePath).then(()=>{
-		copy(sourcePath, process.cwd(), npm())
+		copy(sourcePath, process.cwd(), yarn())
 	})
 }
 
@@ -85,10 +85,10 @@ function completeCtrl(cb){
 
 function runProject(){
 	try{
-		const run = npm(['start'])
+		const run = yarn(['start'])
 		run()
 	}catch(e){
-		red('自动启动失败, 请手动npm start 启动项目')
+		red('自动启动失败, 请手动yarn start 启动项目')
 	}
 }
 
