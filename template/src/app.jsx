@@ -10,7 +10,7 @@ function App(){
 	return <div className="page" >
     <div className="content" >
       <img src={image} />
-      <p className="title" >⭐️  Fvx Tooling for React Development ⭐️</p>
+      <p className="title" >⭐️  Fvx, an automatic, convenience and flexible scaffold Tooling for React Development. ⭐️</p>
     </div>
   </div>
 
