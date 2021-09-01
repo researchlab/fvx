@@ -77,7 +77,7 @@ function copy(sourcePath, currentPath, cb){
 			fs.stat(newSourcePath, (err, stat)=>{
 				if (err) throw err
 				if(stat.isFile() && path !== 'package.json'){
-					if (RegExp(/app.(t|j)sx/).exec(path) && choices.has('less-loader')){
+					if ((RegExp(/app.(t|j)sx/).exec(path) || path === 'index.jsx') && choices.has('less-loader')){
 						 modifyFile(newSourcePath, newCurrentPath)
 					}else{
 					   const reader = fs.createReadStream(newSourcePath)
