@@ -127,12 +127,12 @@ function modifyPackageJson(res, sourcePath){
 				// let json = data.toString()
 				// json = json.replace(/demoName/g, name.trim())
 				// json = json.replace(/demoAuthor/g, author.trim())
-				let obj = JSON.parse(data)
-				[obj.name, obj.author] = [name.trim(), author.trim()]
+				let json = JSON.parse(data)
+				[json.name, json.author] = [name.trim(), author.trim()]
 				pkgs.forEach(pkg=>{
 					if (!choices.has(pkg.name)){
 						pkg.deps.forEach(dep=>{
-							delete obj.dependencies[dep]
+							delete json.dependencies[dep]
 						})
 					}
 				})
