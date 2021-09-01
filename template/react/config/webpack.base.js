@@ -39,18 +39,18 @@ const Appconfig = {
                     }
                 ]
             },
-			{
-			    test: /\.(png|jpe?g|gif|svg|ttf|eot|woff|woff2)$/,
-        		use: {
-        		  loader: 'url-loader',
-        		  options: {
-        		    esModule: false,
-        		    name: '[name]_[hash].[ext]',
-        		    outputPath: 'imgs/',
-        		    limit: 2048
-        		  }
-        		}
-        	},
+            {
+                test: /\.(png|jpe?g|gif|svg|ttf|eot|woff|woff2)$/,
+                use: {
+                  loader: 'url-loader',
+                  options: {
+                    esModule: false,
+                    name: '[name]_[hash].[ext]',
+                    outputPath: 'imgs/',
+                    limit: 2048
+                  }
+                }
+            },
             {
                 test: /\.scss$/,
                 use: [
@@ -113,9 +113,9 @@ const Appconfig = {
            filename: 'index.html', // 输出文件【注意：这里的根路径是module.exports.output.path】
            template: 'src/index.html', // 源模板文件
            // inejct: 向template或者templateContent中注入所有静态资源，不同的配置值注入的位置不经相同。
-           // 	1、true或者body：所有JavaScript资源插入到body元素的底部
-           // 	2、head: 所有JavaScript资源插入到head元素中
-           // 	3、false： 所有静态资源css和JavaScript都不会注入到模板文件中
+           // 1.true或者body：所有JavaScript资源插入到body元素的底部
+           // 2.head: 所有JavaScript资源插入到head元素中
+           // 3.false： 所有静态资源css和JavaScript都不会注入到模板文件中
            inject:true,
            favicon: path.resolve(__dirname,'../src/assets/images/favicon.ico') //动态添加favicon
        }),
