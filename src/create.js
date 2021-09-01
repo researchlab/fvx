@@ -14,7 +14,34 @@ let dirCount = 0
 let flat = 0
 let isInstall = false
 
+let choices = new Set()
+let pkgs = [
+	{
+		name:'sass-loader',
+		deps:['sass-loader', 'node-sass']
+	},
+	{
+		name:'less-loader',
+		deps:['less-loader', 'less']
+	},
+	{
+		name:'typescript',
+		deps:['ts-loader', 'typescript']
+	},
+	{
+		name:'image(url-loader,file-loader)',
+		deps:['url-loader', 'file-loader']
+	}
+]
 module.exports = function(res){
+
+	res.state.forEach(choice=>{
+		choices.add(choice)
+	})
+	res.module.forEach(choice=>{
+		choices.add(choice)
+	})
+
 	green(BUILD_START)		
 	const sourcePath = __dirname.slice(0,-3) +'template'
 	blue('当前路径:'+process.cwd())
@@ -97,9 +124,19 @@ function modifyPackageJson(res, sourcePath){
 			fs.readFile(sourcePath + '/package.json', (err, data)=>{
 				if (err) throw err
 				const { author, name } = res
-				let json = data.toString()
-				json = json.replace(/demoName/g, name.trim())
-				json = json.replace(/demoAuthor/g, author.trim())
+				// let json = data.toString()
+				// json = json.replace(/demoName/g, name.trim())
+				// json = json.replace(/demoAuthor/g, author.trim())
+				let obj = JSON.parse(data)
+				[obj.name, obj.author] = [name.trim(), author.trim()]
+				pkgs.forEach(pkg=>{
+					if (!choices.has(pkg.name)){
+						pkg.deps.forEach(dep=>{
+							delete obj.dependencies[dep]
+						})
+					}
+				})
+
 				const path = process.cwd() + '/package.json'
 				fs.writeFile(path, new Buffer.from(json), ()=>{
 					green('创建文件:' + path)

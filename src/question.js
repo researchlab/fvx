@@ -15,11 +15,42 @@ const create = [
 		when:res=>Boolean(res.conf)
 	},
 	{
-		type:'list',
+		type:'checkbox',
 		message:'请选择公共管理状态?',
 		name:'state',
-		choices:['mobx','redux'],
-		filter: val=> val.toLowerCase(),
+		choices:[
+			{
+				name: 'no need',
+				checked: true
+			},
+			{
+				name: 'mobx'
+			},
+			{
+				name: 'redux'
+			}
+		],
+		when: res=>Boolean(res.conf)
+	},
+	{
+		type:'checkbox',
+		message:'请选择相应的模块?',
+		name:'module',
+		choices:[
+			{
+				name: 'sass-loader',
+				checked: true
+			},
+			{
+				name: 'less-loader'
+			},
+			{
+				name: 'typescript'
+			},
+			{
+				name: 'image(url-loader,file-loader)'
+			}
+		],
 		when: res=>Boolean(res.conf)
 	}
 ]

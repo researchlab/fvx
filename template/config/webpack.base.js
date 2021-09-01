@@ -39,18 +39,18 @@ const Appconfig = {
                     }
                 ]
             },
-					  {
-						  test: /\.(png|jpe?g|gif|svg|ttf|eot|woff|woff2)$/,
-        		  use: {
-        		    loader: 'url-loader',
-        		    options: {
-        		      esModule: false,
-        		      name: '[name]_[hash].[ext]',
-        		      outputPath: 'imgs/',
-        		      limit: 2048
-        		    }
+			{
+			    test: /\.(png|jpe?g|gif|svg|ttf|eot|woff|woff2)$/,
+        		use: {
+        		  loader: 'url-loader',
+        		  options: {
+        		    esModule: false,
+        		    name: '[name]_[hash].[ext]',
+        		    outputPath: 'imgs/',
+        		    limit: 2048
         		  }
-        		},
+        		}
+        	},
             {
                 test: /\.scss$/,
                 use: [
