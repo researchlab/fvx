@@ -186,7 +186,7 @@ function modifyFile(newSourcePath, newCurrentPath){
         if (err) throw err
         let json = data.toString()
         json = json.replace(/app.scss/g, 'app.less')
-        json = json.replace(/default.scss/g', 'default.less')
+        json = json.replace(/default.scss/g, 'default.less')
         fs.writeFile(newCurrentPath, new Buffer.from(json), ()=>{
             green('创建文件:'+newCurrentPath)
         })
