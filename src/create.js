@@ -141,7 +141,7 @@ function modifyPackageJson(res, sourcePath){
 					}
 				})
 				const path = process.cwd() + '/package.json'
-				fs.writeFile(path, new Buffer.from(JSON.stringify(json)), ()=>{
+				fs.writeFile(path, new Buffer.from(JSON.stringify(json,null, '\t')), ()=>{
 					green('创建文件:' + path)
 					resolve()
 				})

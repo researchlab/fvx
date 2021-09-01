@@ -48,7 +48,8 @@ const create = [
 				name: 'typescript'
 			},
 			{
-				name: 'image(url-loader,file-loader)'
+				name: 'image(url-loader,file-loader)',
+				checked: true
 			}
 		],
 		when: res=>Boolean(res.conf)
