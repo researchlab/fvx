@@ -1,6 +1,6 @@
 {
  "name": "fvx",
- "version": "1.0.7",
+ "version": "1.0.7-beta.0",
  "description": "Fvx, an automatic, convenience and flexible scaffold Tooling for React Development.",
  "main": "index.js",
  "repository": "git@github.com:researchlab/fvx.git",
