@@ -129,9 +129,9 @@ function modifyPackageJson(res, sourcePath){
 				// json = json.replace(/demoAuthor/g, author.trim())
 				let json = JSON.parse(data)
 				json = {
+					...json,
 					name: name.trim(),
-					author: author.trim(),
-					...json
+					author: author.trim()
 				}
 				pkgs.forEach(pkg=>{
 					if (!choices.has(pkg.name)){
