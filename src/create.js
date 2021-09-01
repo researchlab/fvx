@@ -64,6 +64,10 @@ function copy(sourcePath, currentPath, cb){
 		flat--
 		if(err) throw err
 		paths.forEach(path=>{
+
+			if (path === 'app.jsx' && choices.has('typescript')) return 
+			if (path === 'app.tsx' && !choices.has('typescript')) return 
+
 			if(path !== '.git' && path !== 'package.json') fileCount++
 			const newSourcePath = sourcePath + '/' + path 
 			const newCurrentPath = currentPath + '/' + path
