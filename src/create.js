@@ -68,15 +68,22 @@ function copy(sourcePath, currentPath, cb){
 			if (path === 'app.jsx' && choices.has('typescript')) return 
 			if (path === 'app.tsx' && !choices.has('typescript')) return 
 
+			if ((path === 'app.scss' || path === 'default.scss') && choices.has('less-loader')) return
+			if ((path === 'app.less' || path === 'default.less') && choices.has('sass-loader')) return
+
 			if(path !== '.git' && path !== 'package.json') fileCount++
 			const newSourcePath = sourcePath + '/' + path 
 			const newCurrentPath = currentPath + '/' + path
 			fs.stat(newSourcePath, (err, stat)=>{
 				if (err) throw err
 				if(stat.isFile() && path !== 'package.json'){
-					const reader = fs.createReadStream(newSourcePath)
-					const writer = fs.createWriteStream(newCurrentPath)
-					reader.pipe(writer)
+					if (RegExp(/app.(t|j)sx/).exec(path) && choices.has('less-loader')){
+						 modifyFile(newSourcePath, newCurrentPath)
+					}else{
+					   const reader = fs.createReadStream(newSourcePath)
+					   const writer = fs.createWriteStream(newCurrentPath)
+					   reader.pipe(writer)
+					}
 					green('创建文件:'+newCurrentPath)
 					fileCount--
 					completeCtrl(cb)
@@ -172,4 +179,16 @@ function setConfig(configPath){
 					})
 			})
 	})
+}
+
+function modifyFile(newSourcePath, newCurrentPath){
+     fs.readFile(newSourcePath, (err,data)=>{
+        if (err) throw err
+        let json = data.toString()
+        json = json.replace(/app.scss/g, 'app.less')
+        json = json.replace(/default.scss/g', 'default.less')
+        fs.writeFile(newCurrentPath, new Buffer.from(json), ()=>{
+            green('创建文件:'+newCurrentPath)
+        })
+     })
 }
