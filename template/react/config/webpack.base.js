@@ -71,6 +71,25 @@ const Appconfig = {
                 ]
             },
             {
+                test: /\.less$/,
+                use: [
+                    'css-hot-loader',
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options:{
+                            postcssOptions:{
+                                plugins:[
+                                    ['autoprefixer'],
+                                ]
+                            }
+                        }
+                    },
+                    'less-loader'
+                ]
+            },
+            {
                 test: /\.tsx?$/,
                 use: {
                     loader: 'ts-loader'
