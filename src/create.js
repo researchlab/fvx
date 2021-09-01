@@ -1,13 +1,14 @@
 const fs = require('fs')
 const utils = require('../utils/index')
 const yarn = require('./install')
+const path = require('path')
 
 const { green, blue, yellow, red } = utils
 
 const BUILD_START     = '----------开始构建-----------'
 const BUILD_END       = '----------构建结束-----------'
-const IINSTALLL_START = '----------yarn包安装----------'
-const INSTANLL_END    = '----------yarn包安装完成------'
+const IINSTALLL_START = '----------yarn包安装---------'
+const INSTANLL_END    = '----------yarn包安装完成-----'
 
 let fileCount = 0
 let dirCount = 0
@@ -43,11 +44,17 @@ module.exports = function(res){
 	})
 
 	green(BUILD_START)		
-	const sourcePath = __dirname.slice(0,-3) +'template'
+	const sourcePath =  path.join(__dirname.slice(0,-3), 'template', 'react')
+	const configPath = path.join(__dirname.slice(0,-3), 'template', 'config')
 	blue('当前路径:'+process.cwd())
+	
+  if (choices.has('typescript')){
+			setConfig(configPath)
+	}
 	modifyPackageJson(res, sourcePath).then(()=>{
 		copy(sourcePath, process.cwd(), yarn())
 	})
+
 }
 
 function copy(sourcePath, currentPath, cb){
@@ -121,7 +128,7 @@ function runProject(){
 
 function modifyPackageJson(res, sourcePath){
 	return new Promise((resolve)=>{
-			fs.readFile(sourcePath + '/package.json', (err, data)=>{
+			fs.readFile(path.join(sourcePath, 'package.json'), (err, data)=>{
 				if (err) throw err
 				const { author, name } = res
 				// let json = data.toString()
@@ -140,11 +147,25 @@ function modifyPackageJson(res, sourcePath){
 						})
 					}
 				})
-				const path = process.cwd() + '/package.json'
-				fs.writeFile(path, new Buffer.from(JSON.stringify(json,null, '\t')), ()=>{
-					green('创建文件:' + path)
+				const pkgPath = path.join(process.cwd(), 'package.json')
+				fs.writeFile(pkgPath, new Buffer.from(JSON.stringify(json,null, '\t')), ()=>{
+					green('创建文件:' + pkgPath)
 					resolve()
 				})
+			})
+	})
+}
+
+function setConfig(configPath){
+	return new Promise(resolve=>{
+			fs.readFile(path.join(configPath, 'tsconfig.json'), (err, data)=>{
+					if (err) throw err
+					let json = data.toString()
+					const tsPath = path.join(process.cwd(), 'tsconfig.json')
+					fs.writeFile(tsPath, new Buffer.from(json), ()=>{
+						green('创建文件:'+tsPath)
+						resolve()
+					})
 			})
 	})
 }
