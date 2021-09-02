@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/researchlab/fvx">
-    <img width="200" src="./template/src/assets/images/favicon.ico">
+    <img width="200" src="./template/react/src/assets/images/favicon.ico">
   </a>
 </p>
 
