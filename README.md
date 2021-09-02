@@ -22,3 +22,15 @@
 [npm-url]: https://www.npmjs.com/package/fvx 
 
 </div>
+
+#### Install
+
+```
+npm install fvx@latest
+```
+
+#### Usage
+
+```
+cd my-app && fvx create
+```
