@@ -93,7 +93,6 @@ function copy(sourcePath, currentPath, cb){
 					completeCtrl(cb)
 				} else if (stat.isDirectory()){
 					if(path !== '.git' && path !== 'package.json'){
-							dirCount++
 							dirExist(newSourcePath, newCurrentPath, copy ,cb)
 					}	
 				} 
@@ -107,6 +106,7 @@ function dirExist(sourcePath, currentPath, copyCallback, cb){
 		if(ext){
 			copyCallback(sourcePath, currentPath, cb)
 		} else {
+			dirCount++
 			fs.mkdir(currentPath, ()=>{
 				fileCount--
 				dirCount--
