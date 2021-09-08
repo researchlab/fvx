@@ -32,6 +32,10 @@ let pkgs = [
 	{
 		name:'image(url-loader,file-loader)',
 		deps:['url-loader', 'file-loader']
+	},
+	{
+		name:'redux',
+		deps:['react-redux','redux']
 	}
 ]
 module.exports = function(res){
