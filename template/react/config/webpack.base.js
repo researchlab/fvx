@@ -7,6 +7,7 @@ const devConfig = require('./webpack.dev');
 const proConfig = require('./webpack.pro');
 
 const Appconfig = {
+    target: 'web',
     entry:{
         main: './src/index.jsx'
     },
