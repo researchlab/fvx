@@ -8,7 +8,7 @@ const devConfig = {
         contentBase: path.resolve(__dirname, '../public'),
         historyApiFallback: true, 
         publicPath: '/',
-        port: 9901
+        port: 9901,
         progress: true, // 进度条
         hotOnly: true, //页面构建失败不刷新页面
         hot: true, // 热加载
