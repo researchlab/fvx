@@ -36,6 +36,10 @@ let pkgs = [
 	{
 		name:'redux',
 		deps:['react-redux','redux']
+	},
+	{
+		name:'mobx',
+		deps:['mobx','mobx-react']
 	}
 ]
 module.exports = function(res){
