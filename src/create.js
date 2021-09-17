@@ -27,7 +27,7 @@ let pkgs = [
 	},
 	{
 		name:'typescript',
-		deps:['ts-loader', 'typescript']
+		deps:['ts-loader', 'typescript', '@types/react', '@types/react-dom', '@types/react-router-dom']
 	},
 	{
 		name:'image(url-loader,file-loader)',
