@@ -13,7 +13,8 @@ const Appconfig = {
     },
     output:{
         path: path.resolve(__dirname, '../public'),
-        filename: '[name].js'
+			  filename: '[name].js',
+			  clean:true,
     },
     resolve:{
         extensions:['.jsx','.tsx','.ts','.js']
@@ -117,7 +118,7 @@ const Appconfig = {
            // 1.true或者body：所有JavaScript资源插入到body元素的底部
            // 2.head: 所有JavaScript资源插入到head元素中
            // 3.false： 所有静态资源css和JavaScript都不会注入到模板文件中
-           inject:true,
+           inject:'body',
            favicon: path.resolve(__dirname,'../src/assets/images/favicon.ico') //动态添加favicon
        }),
        new MiniCssExtractPlugin({
